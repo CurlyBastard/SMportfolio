@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SMportfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path('/assets/images/favicon.ico"') %>
+
+    
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+  </br>
+  
+    <div class="container">
+  <br>
+  <% flash.each do |key, message| %>
+    <p class="alert alert-<%= key %>"><%= message %></p>
+  <% end %>
+</div>
+
+    <%= yield %>  
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>
